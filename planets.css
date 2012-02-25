@@ -1,0 +1,17 @@
+body{
+  background-color: black;
+  color: white;
+}
+
+#map {
+  width: 500px;
+  height: 500px;
+  border: 1px solid white;
+}
+
+.planet {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border: 1px solid white;
+}

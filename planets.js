@@ -33,7 +33,9 @@ $(function(){
   var map = $("#map");
 
   var Planet = Backbone.Model.extend({
-    selected: false,
+    initialize: function(){
+      this.set( "selected", false );
+    },
 
     selectToogle: function(){
       if( this.get( "selected" ) ){
@@ -49,6 +51,19 @@ $(function(){
 
     initialize: function() {
       this.on( "change:selected", this.changeSelected );
+    },
+
+    anySelected: function(){
+      var result =
+        this.any( function( planet ){
+          var result = planet.get( "selected" );
+          console.log( "Planets.anySelected", result );
+          return result;
+        });
+
+      console.log( "Planets.anySelected.result", result );
+
+      return result;
     },
 
     changeSelected: function( model, val, options ){
@@ -113,7 +128,7 @@ $(function(){
     template  : _.template( $('#planet-info').html() ),
 
     attributes: {
-      "style": "display:none;"
+      "class": "planet-info",
     },
 
     initialize: function(opts){
@@ -166,6 +181,17 @@ $(function(){
     initialize: function(opts){
       this.planets = opts.planets;
       this.planets.bind( 'reset', this.addAll, this );
+      this.planets.on( "change:selected", this.toogleShow, this );
+    },
+
+    toogleShow: function(){
+      if( this.planets.anySelected() ){
+        console.log( "InfoPanelView.show" );
+        this.$el.animate( { right: 0 }, 500 );
+      } else {
+        console.log( "InfoPanelView.hide" );
+        this.$el.animate( { right: -300 }, 500 );
+      }
     },
 
     addOne: function( model ) {

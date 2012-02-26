@@ -189,9 +189,9 @@ $(function(){
 
     toogle: function(){
       if( this.planet.get( "selected" ) ){
-        this.$el.show();
+        this.$el.animate( { right: 0 }, 500 );
       } else {
-        this.$el.hide();
+        this.$el.animate( { right: -300 }, 500 );
       }
     },
 
@@ -232,17 +232,6 @@ $(function(){
     initialize: function(opts){
       this.planets = opts.planets;
       this.planets.bind( 'reset', this.addAll, this );
-      this.planets.on( "change:selected", this.toogleShow, this );
-    },
-
-    toogleShow: function(){
-      if( this.planets.anySelected() ){
-        console.log( "InfoPanelView.show" );
-        this.$el.animate( { right: 0 }, 500 );
-      } else {
-        console.log( "InfoPanelView.hide" );
-        this.$el.animate( { right: -300 }, 500 );
-      }
     },
 
     addOne: function( model ) {

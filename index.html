@@ -6,6 +6,7 @@
   <script type="text/javascript" src="./backbone.js"></script>
   <script type="text/javascript" src="./planets.js"></script>
 
+  <link href='http://fonts.googleapis.com/css?family=Ropa+Sans|Asap:700' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" type="text/css" href="./planets.css">
 </head>
 <body>
@@ -17,12 +18,12 @@
 
 <script type="text/template" id="planet-info">
   <h1>Planet info</h1>
-  <h2>{{name}}</h2>
+  <h2><%= name %></h2>
   <div class="info">
     <dl>
-      <dt>Nivel</dt><dd>{{level}}</dd>
-      <dt>Production</dt><dd>{{production}}</dd>
-      <dt>Position</dt><dd>{{x}}-{{y}}</dd>
+      <dt>Nivel</dt><dd><%= level %></dd>
+      <dt>Production</dt><dd><%= production %></dd>
+      <dt>Position</dt><dd><%= x %>-<%= y %></dd>
     </dl>
   </div>
   <div class="mine">
@@ -31,11 +32,23 @@
   </div>
   <div class="navy">
     <ul>
-      <li class="ship"></li>
-      <li class="ship"></li>
-      <li class="ship"></li>
-      <li class="ship"></li>
+      <% _.each( ships, function(ship) { %>
+        <li class="ship"><%= ship.name %></li>
+      <% }); %>
     </ul>
+  </div>
+
+  <div class="controls">
+    <a href="#" class="create-fleet">Create Fleet</a>
+  </div>
+</script>
+
+
+<script type="text/template" id="planet-creating-fleet">
+  <h1>Creating Fleet</h1>
+  <div class="box"></div>
+  <div class="controls">
+    <a href="#" class="send-fleet">Send Fleet</a>
   </div>
 </script>
 

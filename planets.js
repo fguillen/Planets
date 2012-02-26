@@ -9,37 +9,68 @@ function planetsDataMock(){
   var result =
     _.map(
       [1, 2, 3, 4, 5, 6],
-      function(num){
-        var planetData = {
-          name: "X22" + num,
-          x: (random(400) + 50),
-          y: (random(400) + 50),
-          level: random(10),
-          production: random(100),
-        }
-
-        return planetData;
-      }
+      planetDataMock
     );
 
   return result;
 };
 
+function planetDataMock(){
+  var data = {
+    name: ("X22" + random(9)),
+    x: (random(400) + 50),
+    y: (random(400) + 50),
+    level: random(10),
+    production: random(100),
+    ships: shipssDataMock()
+  }
+
+  return data;
+}
+
+function shipssDataMock(){
+  var result =
+    _.map(
+      [1, 2, 3, 4],
+      shipDataMock
+    );
+
+  return result;
+};
+
+function shipDataMock(){
+  var data = {
+    name: ("S22" + random(9))
+  }
+
+  return data;
+}
+
 $(function(){
-  _.templateSettings = {
-    interpolate : /\{\{(.+?)\}\}/g
-  };
+  // _.templateSettings = {
+  //   interpolate : /\{\{(.+?)\}\}/g
+  // };
 
   var map = $("#map");
+
+  var Ship = Backbone.Model.extend({
+
+  });
+
+  var Ships = Backbone.Model.extend({
+    model: Ship
+  })
 
   var Planet = Backbone.Model.extend({
     initialize: function(){
       this.set( "selected", false );
+      this.set( "creatingFloat", false );
     },
 
     selectToogle: function(){
       if( this.get( "selected" ) ){
         this.set( "selected", false );
+        this.set( "creatingFloat", false );
       } else {
         this.set( "selected", true );
       }
@@ -71,6 +102,7 @@ $(function(){
         this.each( function( e ){
           if( e != model && e.get( "selected" ) ) {
             e.set( "selected", false );
+            e.set( "creatingFloat", false );
           }
         });
       };
@@ -108,6 +140,7 @@ $(function(){
 
     render: function(){
       console.log( "PlanetView.render" );
+      console.log( "PlanetView.render.planet", this.planet );
 
       // position
       this.$el.css({ "top"  : this.planet.get("x") });
@@ -124,6 +157,16 @@ $(function(){
     }
   });
 
+  var PlanetCreatingFleetView = Backbone.View.extend({
+    template  : _.template( $('#planet-creating-fleet').html() ),
+
+    attributes: {
+      "class": "planet-creating-fleet",
+    },
+
+
+  });
+
   var PlanetInfoView = Backbone.View.extend({
     template  : _.template( $('#planet-info').html() ),
 
@@ -131,9 +174,17 @@ $(function(){
       "class": "planet-info",
     },
 
+    event: {
+      "click .create-fleet": "creatingFleet"
+    },
+
     initialize: function(opts){
       this.planet = opts.planet;
       this.planet.on( "change:selected", this.toogle, this );
+    },
+
+    creatingFleet: function(){
+      this.planet.set( "creatingFleet", true );
     },
 
     toogle: function(){

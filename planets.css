@@ -5,6 +5,10 @@ body{
 /*  font-family: 'Asap', sans-serif;*/
 }
 
+a {
+  color: black;
+}
+
 /* MAP */
 
 #map {
@@ -56,14 +60,15 @@ body{
 
 .planet-info {
   box-sizing: border-box;
-  padding: 30px 40px 0px 40px;
+  padding: 30px 20px 0px 40px;
   background-color: white;
   position: absolute;
 
-  right: -300px;
+  right: -400px;
+  /*right: 0px;*/
   top: 0px;
   bottom: 0px;
-  width: 300px;
+  width: 400px;
   border-left: 8px solid black;
 }
 
@@ -77,27 +82,42 @@ body{
   margin-top: 20px;
 }
 
-.planet-info .info dt {
+.planet-info .details dt {
   float: left;
 }
 
-.planet-info .info dd {
-  font-family: 'Asap', sans-serif;
+.planet-info .details dd {
   margin-left: 80px;
-  /*float: left;*/
+}
+.planet-info .details dd span {
+  font-family: 'Asap', sans-serif;
 }
 
-.planet-info .machines {
+.planet-info .constructions {
   margin-top: 20px;
 }
 
-.planet-info .navy h1 {
-  font-family: 'Asap', sans-serif;
-  margin-bottom: 5px;
-
+.planet-info .construction {
+  font-size: 14px;
+  margin-bottom: 10px;
 }
 
-.planet-info .navy ul {
+.planet-info .construction > h1 {
+  font-family: 'Asap', sans-serif;
+}
+
+.planet-info .construction .upgrade {
+  margin-left: 80px;
+  margin-top: -14px;
+}
+
+.planet-info .construction .details {
+  margin-top: 5px;
+}
+
+.planet-info .navy .details {
+  padding: 5px;
+  width: 200px;
   border: 1px solid black;
   overflow: hidden;
 }
@@ -110,9 +130,3 @@ body{
 .planet-info .controls {
   margin-top: 10px;
 }
-
-.planet-info .controls a {
-  color: black;
-}
-
-

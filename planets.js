@@ -206,7 +206,7 @@ $(function(){
       if( this.planet.get( "selected" ) ){
         this.$el.animate( { right: 0 }, 500 );
       } else {
-        this.$el.animate( { right: -300 }, 500 );
+        this.$el.animate( { right: -400 }, 500 );
       }
     },
 

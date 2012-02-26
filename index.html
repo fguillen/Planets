@@ -25,21 +25,45 @@
 <script type="text/template" id="planet-info">
   <h1>Planet <span><%= name %></h1>
   <div class="info">
-    <dl>
-      <dt>Nivel</dt><dd><%= level %></dd>
-      <dt>Production</dt><dd><%= production %></dd>
-      <dt>Position</dt><dd><%= x %>-<%= y %></dd>
+    <dl class="details">
+      <dt>Nivel</dt><dd><span><%= level %></span></dd>
+      <dt>Production</dt><dd><span><%= production %></span></dd>
+      <dt>Position</dt><dd><span><%= x %></span>-<span><%= y %></span></dd>
     </dl>
   </div>
 
-  <div class="machines">
-    <div class="mine">
+  <div class="constructions">
+    <div class="construction mine">
+      <h1>Mine</h1>
+      <div class="upgrade">
+        (<a href="#">180⋶ for upgrade</a>)
+      </div>
+      <dl class="details">
+        <dt>Nivel</dt><dd><span>4</span></dd>
+        <dt>Production</dt><dd><span>220 ⨃</span></dd>
+      </dl>
     </div>
-    <div class="hangar">
+    <div class="construction hangar">
+      <h1>Hangar</h1>
+      <div class="upgrade">
+        (upgrading..290⩪)
+      </div>
+      <dl class="details">
+        <dt>Nivel</dt><dd><span>1</span></dd>
+        <dt>Production</dt><dd><span>10 ⨃</span></dd>
+        <dt>
+          Building
+        </dt>
+        <dd>
+          <span>12 ships</span>
+          (123⩪)
+          (<a href>12⋶ for ship</a>)
+        </dd>
+      </dl>
     </div>
-    <div class="navy">
+    <div class="construction navy">
       <h1>Navy</h1>
-      <ul>
+      <ul class="details">
         <% _.each( ships, function(ship) { %>
           <li class="ship"><%= ship.name %></li>
         <% }); %>
@@ -48,7 +72,7 @@
   </div>
 
   <div class="controls">
-    <a href="#" class="create-fleet">Create Fleet</a>
+    <a href="#" class="create-fleet">Send Fleet</a>
   </div>
 </script>
 

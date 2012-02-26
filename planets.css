@@ -30,13 +30,14 @@ body{
 }
 
 .planet .sphere {
+  box-sizing: border-box;
   border: 2px solid black;
-  width: 20px;
-  height: 20px;
+  width: 30px;
+  height: 30px;
 }
 
 .planet.selected .sphere{
-  border: 3px solid black;
+  border: 5px solid black;
 }
 
 .planet.selected h1 {
@@ -50,25 +51,68 @@ body{
   position: absolute;
   right: 0px;
   top: 0px;
-  width: 300px;
-  border: 1px solid black;
+  bottom: 0px;
 }
 
 .planet-info {
-  padding: 10px;
+  box-sizing: border-box;
+  padding: 30px 40px 0px 40px;
   background-color: white;
   position: absolute;
-  /*right: -300px;*/
-  right: 0px;
+
+  right: -300px;
   top: 0px;
+  bottom: 0px;
   width: 300px;
-  height: 500px;
-  border: 1px solid gray;
+  border-left: 8px solid black;
 }
 
-#info-panel h1 span {
+.planet-info > h1 {
+  margin-left: -20px;
+  font-size: 40px;
   font-family: 'Asap', sans-serif;
+}
 
+.planet-info .info {
+  margin-top: 20px;
+}
+
+.planet-info .info dt {
+  float: left;
+}
+
+.planet-info .info dd {
+  font-family: 'Asap', sans-serif;
+  margin-left: 80px;
+  /*float: left;*/
+}
+
+.planet-info .machines {
+  margin-top: 20px;
+}
+
+.planet-info .navy h1 {
+  font-family: 'Asap', sans-serif;
+  margin-bottom: 5px;
+
+}
+
+.planet-info .navy ul {
+  border: 1px solid black;
+  overflow: hidden;
+}
+
+.planet-info .navy ul li {
+  float: left;
+  margin-left: 10px;
+}
+
+.planet-info .controls {
+  margin-top: 10px;
+}
+
+.planet-info .controls a {
+  color: black;
 }
 
 

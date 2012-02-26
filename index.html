@@ -31,16 +31,20 @@
       <dt>Position</dt><dd><%= x %>-<%= y %></dd>
     </dl>
   </div>
-  <div class="mine">
-  </div>
-  <div class="hangar">
-  </div>
-  <div class="navy">
-    <ul>
-      <% _.each( ships, function(ship) { %>
-        <li class="ship"><%= ship.name %></li>
-      <% }); %>
-    </ul>
+
+  <div class="machines">
+    <div class="mine">
+    </div>
+    <div class="hangar">
+    </div>
+    <div class="navy">
+      <h1>Navy</h1>
+      <ul>
+        <% _.each( ships, function(ship) { %>
+          <li class="ship"><%= ship.name %></li>
+        <% }); %>
+      </ul>
+    </div>
   </div>
 
   <div class="controls">

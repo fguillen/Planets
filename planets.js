@@ -204,8 +204,10 @@ $(function(){
 
     toogle: function(){
       if( this.planet.get( "selected" ) ){
+        this.$el.css({ zIndex: 100 });
         this.$el.animate( { right: 0 }, 500 );
       } else {
+        this.$el.css({ zIndex: 0 });
         this.$el.animate( { right: -400 }, 500 );
       }
     },

@@ -7,6 +7,7 @@
   <script type="text/javascript" src="./planets.js"></script>
 
   <link href='http://fonts.googleapis.com/css?family=Ropa+Sans|Asap:700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" type="text/css" href="./reset.css">
   <link rel="stylesheet" type="text/css" href="./planets.css">
 </head>
 <body>
@@ -16,9 +17,13 @@
 
 <!-- TEMPLATES -->
 
+<script type="text/template" id="planet">
+  <h1><%= name %></h1>
+  <div class="sphere"></div>
+</script>
+
 <script type="text/template" id="planet-info">
-  <h1>Planet info</h1>
-  <h2><%= name %></h2>
+  <h1>Planet <span><%= name %></h1>
   <div class="info">
     <dl>
       <dt>Nivel</dt><dd><%= level %></dd>

@@ -119,7 +119,8 @@ $(function(){
   });
 
   var PlanetView = Backbone.View.extend({
-    tagName: "div",
+    template  : _.template( $('#planet').html() ),
+
     attributes: {
       class: "planet"
     },
@@ -134,25 +135,32 @@ $(function(){
 
     initialize: function(opts){
       this.planet = opts.planet;
-      this.planet.on( "change:x change:y", this.render, this )
-      this.planet.on( "change:selected", this.render, this )
+      this.planet.on( "change:x change:y", this.updateAttributes, this );
+      this.planet.on( "change:selected", this.updateSelected, this );
+
+      this.updateAttributes();
     },
 
-    render: function(){
-      console.log( "PlanetView.render" );
-      console.log( "PlanetView.render.planet", this.planet );
+    updateAttributes: function(){
+      this.updatePositions();
+      this.updateSelected();
+    },
 
-      // position
+    updatePositions: function(){
       this.$el.css({ "top"  : this.planet.get("x") });
       this.$el.css({ "left" : this.planet.get("y") });
+    },
 
-      // selected
+    updateSelected: function(){
       if( this.planet.get( "selected" ) ){
         this.$el.addClass( "selected" );
       } else {
         this.$el.removeClass( "selected" );
       }
+    },
 
+    render: function(){
+      this.$el.html( this.template( this.planet.toJSON() ) );
       return this;
     }
   });
@@ -164,6 +172,13 @@ $(function(){
       "class": "planet-creating-fleet",
     },
 
+    render: function(){
+      console.log( "PlanetInfoView.render" );
+
+      this.$el.html( this.template( this.planet.toJSON() ) );
+
+      return this;
+    }
 
   });
 

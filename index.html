@@ -17,6 +17,10 @@
 
 <!-- TEMPLATES -->
 
+<script type="text/template" id="planet-ship">
+  <%= name %>
+</script>
+
 <script type="text/template" id="planet">
   <h1><%= name %></h1>
   <div class="sphere"></div>
@@ -64,11 +68,6 @@
     </div>
     <div class="construction navy">
       <h1>Navy</h1>
-      <ul class="details">
-        <% _.each( ships, function(ship) { %>
-          <li class="ship"><%= ship.name %></li>
-        <% }); %>
-      </ul>
     </div>
   </div>
 
@@ -77,13 +76,5 @@
   </div>
 </script>
 
-
-<script type="text/template" id="planet-creating-fleet">
-  <h1>Creating Fleet</h1>
-  <div class="box"></div>
-  <div class="controls">
-    <a href="#" class="send-fleet">Send Fleet</a>
-  </div>
-</script>
 
 </html>

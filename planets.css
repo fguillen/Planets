@@ -129,6 +129,10 @@ a {
   margin-left: 10px;
 }
 
+.planet-info .navy ul li.selected {
+  font-weight: bold;
+}
+
 .planet-info .controls {
   margin-top: 10px;
 }

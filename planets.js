@@ -58,6 +58,7 @@ $(function(){
   var Ship = Backbone.Model.extend({
     initialize: function(){
       this.set( "selected", false );
+      this.set( "selectable", false );
     },
 
     selectToogle: function(){
@@ -156,6 +157,7 @@ $(function(){
 
     initialize: function() {
       this.on( "change:selected", this.changeSelected );
+      this.on( "change:creatingFleet", this.creatingFleet );
     },
 
     anySelected: function(){
@@ -171,7 +173,17 @@ $(function(){
       return result;
     },
 
-    changeSelected: function( model, val, options ){
+    creatingFleet: function( model, val, opts ){
+      console.log( "Planets.creatingFleet", val );
+
+      this.each( function( e ){
+        if( e != model ) {
+          e.set( "selectable", val );
+        }
+      });
+    },
+
+    changeSelected: function( model, val, opts ){
       if( val ){
         this.each( function( e ){
           if( e != model && e.get( "selected" ) ) {
@@ -210,6 +222,7 @@ $(function(){
       this.planet = opts.planet;
       this.planet.on( "change:x change:y", this.updateAttributes, this );
       this.planet.on( "change:selected", this.updateSelected, this );
+      this.planet.on( "change:selectable", this.updateSelectable, this );
 
       this.updateAttributes();
     },
@@ -232,6 +245,14 @@ $(function(){
       }
     },
 
+    updateSelectable: function(){
+      if( this.planet.get( "selectable" ) ){
+        this.$el.addClass( "selectable" );
+      } else {
+        this.$el.removeClass( "selectable" );
+      }
+    },
+
     render: function(){
       this.$el.html( this.template( this.planet.toJSON() ) );
       return this;
@@ -245,7 +266,7 @@ $(function(){
       "class": "planet-info"
     },
 
-    event: {
+    events: {
       "click .create-fleet": "creatingFleet"
     },
 
@@ -261,6 +282,7 @@ $(function(){
     },
 
     creatingFleet: function(){
+      console.log( "PlanetInfoView.creatingFleet" );
       this.planet.set( "creatingFleet", true );
     },
 

@@ -26,6 +26,11 @@
   <div class="sphere"></div>
 </script>
 
+<script type="text/template" id="fleet">
+  <h1><%= name %></h1>
+  <div class="sphere"></div>
+</script>
+
 <script type="text/template" id="planet-info">
   <h1>Planet <span><%= name %></h1>
   <div class="info">
@@ -73,6 +78,19 @@
 
   <div class="controls">
     <a href="#" class="create-fleet">Send Fleet</a>
+  </div>
+</script>
+
+<script type="text/template" id="fleet-info">
+  <h1>Fleet <span><%= name %></h1>
+  <div class="info">
+    <dl class="details">
+      <dt>Position</dt><dd><span>⩟<%= x %> ⩠<%= y %></span></dd>
+    </dl>
+  </div>
+
+  <div class="controls">
+    <a href="#" class="create-fleet">Change Course</a>
   </div>
 </script>
 

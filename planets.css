@@ -48,6 +48,48 @@ a {
   color: black;
 }
 
+@-webkit-keyframes turnit{
+  0%{ -webkit-transform: scale(1); }
+  50%{ -webkit-transform: scale(1.2); }
+  100%{ -webkit-transform: scale(1); }
+}
+
+.planet.selectable {
+  -webkit-animation-name: turnit;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-duration: 0.5s;
+  -webkit-animation-timing-function: linear;
+}
+
+
+.fleet {
+  position: absolute;
+}
+
+.fleet h1 {
+  color: transparent;
+  text-align: center;
+  font-size: 8px;
+}
+
+.fleet:hover h1 {
+  color: red;
+}
+
+.fleet .sphere {
+  box-sizing: border-box;
+  border: 2px solid red;
+  width: 10px;
+  height: 10px;
+}
+
+.planet.selected .sphere{
+  border: 3px solid red;
+}
+
+.planet.selected h1 {
+  color: red;
+}
 
 /* INFO PANEL */
 
@@ -137,15 +179,4 @@ a {
   margin-top: 10px;
 }
 
-@-webkit-keyframes turnit{
-  0%{ -webkit-transform: scale(1); }
-  50%{ -webkit-transform: scale(1.2); }
-  100%{ -webkit-transform: scale(1); }
-}
 
-.planet.selectable {
-  -webkit-animation-name: turnit;
-  -webkit-animation-iteration-count: infinite;
-  -webkit-animation-duration: 0.5s;
-  -webkit-animation-timing-function: linear;
-}

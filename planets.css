@@ -100,7 +100,7 @@ a {
   bottom: 0px;
 }
 
-.planet-info {
+.panel-info {
   box-sizing: border-box;
   padding: 30px 20px 0px 40px;
   background-color: white;
@@ -114,68 +114,68 @@ a {
   border-left: 8px solid black;
 }
 
-.planet-info > h1 {
+.panel-info > h1 {
   margin-left: -20px;
   font-size: 40px;
   font-family: 'Asap', sans-serif;
 }
 
-.planet-info .info {
+.panel-info .info {
   margin-top: 20px;
 }
 
-.planet-info .details dt {
+.panel-info .details dt {
   float: left;
 }
 
-.planet-info .details dd {
+.panel-info .details dd {
   margin-left: 80px;
 }
-.planet-info .details dd span {
+.panel-info .details dd span {
   font-family: 'Asap', sans-serif;
   font-size: .9em;
   line-height: 16px;
 }
 
-.planet-info .constructions {
+.panel-info .constructions {
   margin-top: 20px;
 }
 
-.planet-info .construction {
+.panel-info .construction {
   font-size: 14px;
   margin-bottom: 10px;
 }
 
-.planet-info .construction > h1 {
+.panel-info .construction > h1 {
   font-family: 'Asap', sans-serif;
 }
 
-.planet-info .construction .upgrade {
+.panel-info .construction .upgrade {
   margin-left: 80px;
   margin-top: -14px;
 }
 
-.planet-info .construction .details {
+.panel-info .construction .details {
   margin-top: 5px;
 }
 
-.planet-info .navy .details {
+.panel-info .navy .details {
   padding: 5px;
   width: 200px;
   border: 1px solid black;
   overflow: hidden;
 }
 
-.planet-info .navy ul li {
+.panel-info .navy ul li {
   float: left;
   margin-left: 10px;
 }
 
-.planet-info .navy ul li.selected {
+.panel-info .navy ul li.selected {
   font-weight: bold;
 }
 
-.planet-info .controls {
+.panel-info .controls {
   margin-top: 10px;
 }
 

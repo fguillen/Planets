@@ -43,7 +43,7 @@ $(function(){
     initialize: function(opts){
       this.fleet = opts.fleet;
       this.fleet.on( "change:x change:y", this.updateAttributes, this );
-      this.fleet.on( "change:selectable", this.updateSelectable, this );
+      this.fleet.on( "change:selected", this.updateSelected, this );
 
       this.updateAttributes();
     },
@@ -79,6 +79,12 @@ $(function(){
       this.on( "change:selected", this.changeSelected );
     },
 
+    deselectAll: function(){
+      this.each( function( e ){
+        e.set( "selected", false );
+      });
+    },
+
     anySelected: function(){
       var result =
         this.any( function( fleet ){
@@ -94,6 +100,8 @@ $(function(){
 
     changeSelected: function( model, val, opts ){
       if( val ){
+        Game.planets.deselectAll();
+
         this.each( function( e ){
           if( e != model && e.get( "selected" ) ) {
             e.set( "selected", false );
@@ -242,8 +250,16 @@ $(function(){
       });
     },
 
+    deselectAll: function(){
+      this.each( function( e ){
+        e.set( "selected", false );
+      });
+    },
+
     changeSelected: function( model, val, opts ){
       if( val ){
+        Game.fleets.deselectAll();
+
         this.each( function( e ){
           if( e != model && e.get( "selected" ) ) {
             e.set( "selected", false );
@@ -327,7 +343,7 @@ $(function(){
     template  : _.template( $('#fleet-info').html() ),
 
     attributes: {
-      "class": "fleet-info"
+      "class": "panel-info fleet-info"
     },
 
     initialize: function(opts){
@@ -362,7 +378,7 @@ $(function(){
     template  : _.template( $('#planet-info').html() ),
 
     attributes: {
-      "class": "planet-info"
+      "class": "panel-info planet-info"
     },
 
     events: {

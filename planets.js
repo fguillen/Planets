@@ -56,8 +56,8 @@ $(function(){
     },
 
     updatePositions: function(){
-      this.$el.css({ "left"  : this.fleet.get("x") });
-      this.$el.css({ "top" : this.fleet.get("y") });
+      this.$el.css({ "left":  (this.fleet.get("x") - 5) });
+      this.$el.css({ "top":   (this.fleet.get("y") - 5) });
     },
 
     updateSelected: function(){
@@ -314,8 +314,8 @@ $(function(){
     },
 
     updatePositions: function(){
-      this.$el.css({ "left"  : this.planet.get("x") });
-      this.$el.css({ "top" : this.planet.get("y") });
+      this.$el.css({ "left"  : (this.planet.get("x") - 15)  });
+      this.$el.css({ "top" : (this.planet.get("y") - 15) });
     },
 
     updateSelected: function(){

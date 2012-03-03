@@ -80,6 +80,7 @@
 
   <div class="controls">
     <a href="#" class="create-fleet">Send Fleet</a>
+    <a href="#" class="cancel-fleet">Cancel Fleet</a>
   </div>
 </script>
 
@@ -91,8 +92,19 @@
     </dl>
   </div>
 
+  <div class="constructions">
+    <div class="construction navy">
+      <h1>Navy</h1>
+      <ul>
+        <% ships.each( function( ship ){ %>
+          <li><%= ship.get( "name" ) %></li>
+        <% }); %>
+      </ul>
+    </div>
+  </div>
+
   <div class="controls">
-    <a href="#" class="create-fleet">Change Course</a>
+    <a href="#" class="course-fleet">Change Course</a>
   </div>
 </script>
 

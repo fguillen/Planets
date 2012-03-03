@@ -551,11 +551,14 @@ console.log( "loading Backbone" );
     // Remove a model, or a list of models from the set. Pass silent to avoid
     // firing the `remove` event for every model removed.
     remove: function(models, options) {
+      console.log( "removing models", models );
+
       var i, l, index, model;
       options || (options = {});
       models = _.isArray(models) ? models.slice() : [models];
       for (i = 0, l = models.length; i < l; i++) {
         model = this.getByCid(models[i]) || this.get(models[i]);
+        console.log( "removing model", model );
         if (!model) continue;
         delete this._byId[model.id];
         delete this._byCid[model.cid];

@@ -50,7 +50,7 @@ var data = {
       "id":           "3",
       "name":         "X003",
       "x":            "200",
-      "y":            "100",
+      "y":            "300",
       "level":        "1",
       "production":   "90",
       "shipsData":    [
@@ -77,7 +77,21 @@ var data = {
       "name":         "F000",
       "origin":       "1",
       "destination":  "3",
-      "percent":      "0"
+      "percent":      "0",
+      "shipsData":    [
+        {
+          "id":  4,
+          "name": "A004"
+        },
+        {
+          "id":  5,
+          "name": "A005"
+        },
+        {
+          "id":  6,
+          "name": "A006"
+        },
+      ]
     },
 
     {
@@ -85,7 +99,13 @@ var data = {
       "name":         "F001",
       "origin":       "1",
       "destination":  "3",
-      "percent":      "20"
+      "percent":      "20",
+      "shipsData":    [
+        {
+          "id":  4,
+          "name": "A004"
+        }
+      ]
     },
 
     {
@@ -93,7 +113,14 @@ var data = {
       "name":         "F002",
       "origin":       "1",
       "destination":  "3",
-      "percent":      "30"
+      "percent":      "30",
+      "shipsData":    [
+        {
+          "id":  4,
+          "name": "A004"
+        }
+      ]
+
     },
 
     {
@@ -101,7 +128,13 @@ var data = {
       "name":         "F003",
       "origin":       "1",
       "destination":  "3",
-      "percent":      "40"
+      "percent":      "40",
+      "shipsData":    [
+        {
+          "id":  4,
+          "name": "A004"
+        }
+      ]
     },
 
     {
@@ -109,7 +142,13 @@ var data = {
       "name":         "F004",
       "origin":       "1",
       "destination":  "3",
-      "percent":      "50"
+      "percent":      "50",
+      "shipsData":    [
+        {
+          "id":  4,
+          "name": "A004"
+        }
+      ]
     },
 
     {
@@ -117,7 +156,13 @@ var data = {
       "name":         "F005",
       "origin":       "1",
       "destination":  "3",
-      "percent":      "60"
+      "percent":      "60",
+      "shipsData":    [
+        {
+          "id":  4,
+          "name": "A004"
+        }
+      ]
     },
 
     {
@@ -125,7 +170,13 @@ var data = {
       "name":         "F006",
       "origin":       "1",
       "destination":  "3",
-      "percent":      "100"
+      "percent":      "100",
+      "shipsData":    [
+        {
+          "id":  4,
+          "name": "A004"
+        }
+      ]
     },
   ]
 }

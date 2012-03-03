@@ -1,6 +1,6 @@
 function fleetCoordinates( fleet, planets ){
-  var planetOrigin      = planets.get( fleet.get( "origin" ) );
-  var planetDestination = planets.get( fleet.get( "destination" ) );
+  var planetOrigin      = fleet.get( "origin" );
+  var planetDestination = fleet.get( "destination" );
   var distance          = distancePlanets( planetOrigin, planetDestination );
   var distanceCovered   = percent( distance, fleet.get( "percent" ) );
 

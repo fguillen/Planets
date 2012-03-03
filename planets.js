@@ -8,7 +8,9 @@ $(function(){
       console.log( "Fleet.initialize", this );
       this.set( "selected", false );
 
-      this.set( "ships", new Ships().reset( this.get( "shipsData" ) ) );
+      this.set( "ships",        new Ships().reset( this.get( "shipsData" ) ) );
+      this.set( "origin",       Game.planets.get( this.get( "origin_id" ) ) );
+      this.set( "destination",  Game.planets.get( this.get( "destination_id" ) ) );
 
       var coordinates = fleetCoordinates( this, Game.planets );
 

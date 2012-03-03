@@ -73,12 +73,12 @@ var data = {
 
   "fleets" : [
     {
-      "id":           "0",
-      "name":         "F000",
-      "origin":       "1",
-      "destination":  "3",
-      "percent":      "0",
-      "shipsData":    [
+      "id":             "1",
+      "name":           "F001",
+      "origin_id":      "1",
+      "destination_id": "3",
+      "percent":        "23",
+      "shipsData": [
         {
           "id":  4,
           "name": "A004"
@@ -95,26 +95,12 @@ var data = {
     },
 
     {
-      "id":           "1",
-      "name":         "F001",
-      "origin":       "1",
-      "destination":  "3",
-      "percent":      "20",
-      "shipsData":    [
-        {
-          "id":  4,
-          "name": "A004"
-        }
-      ]
-    },
-
-    {
-      "id":           "2",
-      "name":         "F002",
-      "origin":       "1",
-      "destination":  "3",
-      "percent":      "30",
-      "shipsData":    [
+      "id":             "2",
+      "name":           "F002",
+      "origin_id":      "2",
+      "destination_id": "3",
+      "percent":        "30",
+      "shipsData": [
         {
           "id":  4,
           "name": "A004"
@@ -123,60 +109,6 @@ var data = {
 
     },
 
-    {
-      "id":           "3",
-      "name":         "F003",
-      "origin":       "1",
-      "destination":  "3",
-      "percent":      "40",
-      "shipsData":    [
-        {
-          "id":  4,
-          "name": "A004"
-        }
-      ]
-    },
 
-    {
-      "id":           "4",
-      "name":         "F004",
-      "origin":       "1",
-      "destination":  "3",
-      "percent":      "50",
-      "shipsData":    [
-        {
-          "id":  4,
-          "name": "A004"
-        }
-      ]
-    },
-
-    {
-      "id":           "5",
-      "name":         "F005",
-      "origin":       "1",
-      "destination":  "3",
-      "percent":      "60",
-      "shipsData":    [
-        {
-          "id":  4,
-          "name": "A004"
-        }
-      ]
-    },
-
-    {
-      "id":           "6",
-      "name":         "F006",
-      "origin":       "1",
-      "destination":  "3",
-      "percent":      "100",
-      "shipsData":    [
-        {
-          "id":  4,
-          "name": "A004"
-        }
-      ]
-    },
   ]
 }

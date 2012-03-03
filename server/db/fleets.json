@@ -1,0 +1,40 @@
+"fleets" : [
+  {
+    "id":             "1",
+    "name":           "F001",
+    "origin_id":      "1",
+    "destination_id": "3",
+    "percent":        "23",
+    "shipsData": [
+      {
+        "id":  4,
+        "name": "A004"
+      },
+      {
+        "id":  5,
+        "name": "A005"
+      },
+      {
+        "id":  6,
+        "name": "A006"
+      },
+    ]
+  },
+
+  {
+    "id":             "2",
+    "name":           "F002",
+    "origin_id":      "2",
+    "destination_id": "3",
+    "percent":        "30",
+    "shipsData": [
+      {
+        "id":  4,
+        "name": "A004"
+      }
+    ]
+
+  },
+
+
+]

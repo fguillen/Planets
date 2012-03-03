@@ -76,6 +76,7 @@ $(function(){
 
   var Fleets = Backbone.Collection.extend({
     model: Fleet,
+    url: "http://localhost:9292/fleets",
 
     initialize: function() {
       this.on( "change:selected", this.changeSelected );
@@ -224,6 +225,8 @@ $(function(){
   var Planets = Backbone.Collection.extend({
     model: Planet,
 
+    url: "http://localhost:9292/planets",
+
     initialize: function() {
       this.on( "change:selected", this.changeSelected );
       this.on( "change:creatingFleet", this.creatingFleet );
@@ -270,14 +273,6 @@ $(function(){
       };
     },
 
-    sync: function( method, model, options ){
-      console.log( "Planets.sync", method, model, options );
-      var result = planetsDataMock();
-
-      options.success( result );
-
-      return result;
-    }
   });
 
   var PlanetView = Backbone.View.extend({
@@ -544,8 +539,11 @@ $(function(){
 
 
   Game = new GameView();
-  Game.planets.reset( data.planets );
-  Game.fleets.reset( data.fleets );
+  Game.planets.fetch();
+  Game.fleets.fetch();
+
+  // Game.planets.reset( data.planets );
+  // Game.fleets.reset( data.fleets );
 
 
 

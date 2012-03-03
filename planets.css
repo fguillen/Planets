@@ -83,11 +83,11 @@ a {
   height: 10px;
 }
 
-.planet.selected .sphere{
+.fleet.selected .sphere{
   border: 3px solid red;
 }
 
-.planet.selected h1 {
+.fleet.selected h1 {
   color: red;
 }
 

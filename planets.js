@@ -1,85 +1,17 @@
-
-function random(num){
-  return Math.floor( Math.random() * num );
-};
-
-function planetsDataMock(){
-  var result =
-    _.map(
-      [1, 2, 3, 4, 5, 6],
-      planetDataMock
-    );
-
-  return result;
-};
-
-function fleetsDataMock(){
-  var result =
-    _.map(
-      [1, 2, 3, 4, 5, 6],
-      fleetDataMock
-    );
-
-  return result;
-};
-
-function fleetDataMock(){
-  var data = {
-    id:           random(400),
-    name:         ("F22" + random(9)),
-    x:            (random(400) + 50),
-    y:            (random(400) + 50),
-    shipsData:    shipsDataMock()
-  }
-
-  return data;
-};
-
-
-function planetDataMock(){
-  var data = {
-    id:           random(400),
-    name:         ("X22" + random(9)),
-    x:            (random(400) + 50),
-    y:            (random(400) + 50),
-    level:        random(10),
-    production:   random(100),
-    shipsData:    shipsDataMock()
-  }
-
-  return data;
-}
-
-function shipsDataMock(){
-  var result =
-    _.map(
-      [1, 2, 3, 4],
-      shipDataMock
-    );
-
-  return result;
-};
-
-function shipDataMock(){
-  var data = {
-    id:   random(400),
-    name: ("S22" + random(9))
-  }
-
-  return data;
-}
+var Game = "pepe";
 
 $(function(){
-  // _.templateSettings = {
-  //   interpolate : /\{\{(.+?)\}\}/g
-  // };
-
   var map = $("#map");
 
   var Fleet = Backbone.Model.extend({
     initialize: function(){
       console.log( "Fleet.initialize", this );
       this.set( "selected", false );
+
+      var coordinates = fleetCoordinates( this, Game.planets );
+
+      this.set( "x", coordinates["x"] );
+      this.set( "y", coordinates["y"] );
     },
 
     selectToogle: function(){
@@ -120,8 +52,8 @@ $(function(){
     },
 
     updatePositions: function(){
-      this.$el.css({ "top"  : this.fleet.get("x") });
-      this.$el.css({ "left" : this.fleet.get("y") });
+      this.$el.css({ "left"  : this.fleet.get("x") });
+      this.$el.css({ "top" : this.fleet.get("y") });
     },
 
     updateSelected: function(){
@@ -363,8 +295,8 @@ $(function(){
     },
 
     updatePositions: function(){
-      this.$el.css({ "top"  : this.planet.get("x") });
-      this.$el.css({ "left" : this.planet.get("y") });
+      this.$el.css({ "left"  : this.planet.get("x") });
+      this.$el.css({ "top" : this.planet.get("y") });
     },
 
     updateSelected: function(){
@@ -541,8 +473,9 @@ $(function(){
     initialize: function(){
       console.log( "GameView.initialize" );
 
-      this.planets = new Planets({});
-      this.fleets = new Fleets({});
+      this.data = data;
+      this.planets = new Planets();
+      this.fleets = new Fleets();
 
       this.map = new MapView({
         planets: this.planets,
@@ -554,15 +487,16 @@ $(function(){
         fleets: this.fleets,
       });
 
-      this.planets.fetch();
-      this.fleets.fetch();
+      console.log( "GameView.initialize END" );
     }
   });
 
 
 
 
-  var game = new GameView();
+  Game = new GameView();
+  Game.planets.reset( data.planets );
+  Game.fleets.reset( data.fleets );
 
 
 

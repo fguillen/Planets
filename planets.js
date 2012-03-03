@@ -472,6 +472,7 @@ $(function(){
 
       this.fleets = opts.fleets;
       this.fleets.bind( 'reset', this.addAllFleets, this );
+      this.fleets.bind( 'add', this.addOneFleet, this );
     },
 
     addOnePlanet: function( model ) {
@@ -519,16 +520,15 @@ $(function(){
       console.log( "GameView.sendFleetToPlanet", planetDestination );
 
       var planetOrigin      = this.planets.selected()[0];
-      console.log( "planetOrigin", planetOrigin );
       var planetDestination = planetDestination;
       var ships             = planetOrigin.ships.selected();
 
       var fleet = new Fleet({
-        name:         "F999",
-        origin:       planetOrigin.id,
-        destination:  planetDestination.id,
-        percent:      0,
-        shipsData:    new Ships( ships ).toJSON()
+        name:           "F999",
+        origin_id:      planetOrigin.id,
+        destination_id: planetDestination.id,
+        percent:        0,
+        shipsData:      new Ships( ships ).toJSON()
       });
 
       planetOrigin.ships.remove( ships );

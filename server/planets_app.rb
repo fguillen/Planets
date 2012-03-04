@@ -33,8 +33,8 @@ class PlanetsApp < Sinatra::Base
 
   post "/fleets" do
     puts "XXX: params: #{params}"
-    puts "XXX: request.env['rack.input'].read: #{request.env["rack.input"].read}"
-    fleet = game.save_fleet( request.env["rack.input"].read )
+    # puts "XXX: request.env['rack.input'].read: #{request.env["rack.input"].read}"
+    fleet = game.save_fleet( JSON.parse( request.env["rack.input"].read ) )
 
     fleet.to_json
   end

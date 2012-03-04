@@ -1,18 +1,41 @@
-require 'sinatra/base'
+require "sinatra/base"
+require "json"
+require_relative "lib/game"
 
 class PlanetsApp < Sinatra::Base
+  game = Game.new
   set :sessions, true
-  set :foo, 'bar'
+
+  before do
+    headers(
+      'Access-Control-Allow-Origin'       => "*",
+      'Access-Control-Allow-Methods'      => "POST, GET, OPTIONS, PUT, DELETE",
+      'Access-Control-Allow-Headers'      => "*",
+      'Access-Control-Max-Age'            => "1728000",
+      'Access-Control-Allow-Headers'      => "Content-Type"
+    )
+  end
+
+
 
   get '/fleets' do
-    headers( "Access-Control-Allow-Origin" => "*" )
+    puts "XXX: fleets"
+    # headers( "Access-Control-Allow-Origin" => "*" )
     content_type :json
-    File.read( "#{File.dirname(__FILE__)}/db/fleets.json" )
+    game.fleets.to_json
   end
 
   get '/planets' do
-    headers( "Access-Control-Allow-Origin" => "*" )
+    # cross_origin
     content_type :json
-    File.read( "#{File.dirname(__FILE__)}/db/planets.json" )
+    game.planets.to_json
+  end
+
+  post "/fleets" do
+    puts "XXX: params: #{params}"
+    puts "XXX: request.env['rack.input'].read: #{request.env["rack.input"].read}"
+    fleet = game.save_fleet( request.env["rack.input"].read )
+
+    fleet.to_json
   end
 end

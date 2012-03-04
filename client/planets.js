@@ -4,6 +4,8 @@ $(function(){
   var map = $("#map");
 
   var Fleet = Backbone.Model.extend({
+    url: "http://localhost:9292/fleets",
+
     initialize: function(){
       console.log( "Fleet.initialize", this );
       this.set( "selected", false );
@@ -518,16 +520,15 @@ $(function(){
       var planetDestination = planetDestination;
       var ships             = planetOrigin.ships.selected();
 
-      var fleet = new Fleet({
+      planetOrigin.ships.remove( ships );
+
+      this.fleets.create({
         name:           "F999",
         origin_id:      planetOrigin.id,
         destination_id: planetDestination.id,
         percent:        0,
         shipsData:      new Ships( ships ).toJSON()
       });
-
-      planetOrigin.ships.remove( ships );
-      this.fleets.add( fleet );
 
       planetOrigin.set( "creatingFleet", false );
 

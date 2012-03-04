@@ -1230,15 +1230,16 @@ console.log( "loading Backbone" );
     }
 
     // Make the request, allowing the user to override any Ajax options.
+    console.log( "ajax_call.params", params );
+    console.log( "ajax_call.options", options );
+
     return $.ajax(_.extend(params, options));
   };
 
   // Wrap an optional error callback with a fallback error event.
   Backbone.wrapError = function(onError, originalModel, options) {
-    console.log( "wrapError a", onError, originalModel, options );
-
     return function(model, resp) {
-      console.log( "wrapError b", resp );
+      console.log( "wrapError", model, resp );
 
       resp = model === originalModel ? resp : model;
       if (onError) {
